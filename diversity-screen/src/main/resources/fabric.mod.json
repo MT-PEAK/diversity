@@ -1,14 +1,15 @@
 {
   "schemaVersion": 1,
-  "id": "diversity-core",
+  "id": "diversity-screen",
   "version": "${version}",
-  "name": "Diversity Core",
-  "description": "Core module of the Diversity API.",
+  "name": "Diversity Screen",
+  "description": "Screen module of the Diversity API.",
   "license": "Unlicense",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "minecraft": "~${minecraft_version}",
-    "java": ">=21"
+    "java": ">=21",
+    "diversity-core": "${version}"
   },
   "entrypoints": {
     "main": [],

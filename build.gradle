@@ -12,6 +12,16 @@ subprojects {
     apply plugin: 'fabric-loom'
     apply plugin: 'maven-publish'
 
+    afterEvaluate {
+        if (project.name != 'diversity-core') {
+            project.tasks.configureEach { task ->
+                if (task.name.toLowerCase().contains('loom') || task.name == 'generateSources') {
+                    task.dependsOn(':diversity-core:jar')
+                }
+            }
+        }
+    }
+
     repositories {
         // shared repos
     }
