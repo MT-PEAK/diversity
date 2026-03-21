@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "diversity",
+  "version": "${version}",
+  "name": "diversity",
+  "description": "baller",
+  "authors": [],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/diversity/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.peak.diversity.data.DiversityDataGenerator"
+    ],
+    "client": [
+      "com.peak.diversity.client.DiversityClient"
+    ],
+    "main": [
+      "com.peak.diversity.Diversity"
+    ]
+  },
+  "mixins": [
+    "diversity.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
