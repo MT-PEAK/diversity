@@ -1,17 +1,35 @@
 {
-  "schemaVersion": 1,
-  "id": "diversity-core",
-  "version": "${version}",
-  "name": "Diversity Core",
-  "description": "Core module of the Diversity API.",
-  "license": "Unlicense",
-  "depends": {
-    "fabricloader": ">=${loader_version}",
-    "minecraft": "~${minecraft_version}",
-    "java": ">=21"
-  },
-  "entrypoints": {
-    "main": [],
-    "client": []
-  }
+    "schemaVersion": 1,
+    "id": "diversity-core",
+    "version": "${version}",
+    "name": "Diversity Core",
+    "description": "Core module of the Diversity API.",
+    "license": "Unlicense",
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=21"
+    },
+    "entrypoints": {
+        "main": [
+            "com.peak.diversityCore.DiversityCore"
+        ],
+        "client": [
+            "com.peak.diversityCore.client.DiversityCoreClient"
+        ],
+        "fabric-datagen": [
+            "com.peak.diversityCore.client.DiversityCoreDataGenerator"
+        ]
+    },
+    "custom": {
+        "modmenu": {
+            "badges": [ "library" ],
+            "parent": {
+                "id": "diversity",
+                "name": "Diversity",
+                "description": "A multi-module Fabric API.",
+                "badges": [ "library" ]
+            }
+        }
+    }
 }
