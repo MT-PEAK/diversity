@@ -1,7 +1,0 @@
-evaluationDependsOn(':diversity-core')
-
-base { archivesName = 'diversity-rendering' }
-
-dependencies {
-    modImplementation project(path: ':diversity-core', configuration: 'namedElements')
-}

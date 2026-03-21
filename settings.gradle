@@ -11,7 +11,4 @@ pluginManagement {
 rootProject.name = 'diversity'
 
 include 'diversity-core'
-include 'diversity-rendering'
 include 'diversity-item'
-include 'diversity-data'
-include 'diversity-screen'
