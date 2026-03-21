@@ -12,3 +12,6 @@ rootProject.name = 'diversity'
 
 include 'diversity-core'
 include 'diversity-item'
+include 'diversity-data'
+include 'diversity-screen'
+include 'diversity-rendering'

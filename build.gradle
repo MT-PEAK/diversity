@@ -15,17 +15,16 @@ allprojects {
     group   = project.rootProject.maven_group
 }
 
-// Root project pulls in all submodule jars via JiJ (Jar in Jar)
-// Players download this one jar, Fabric unpacks the modules automatically
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings  "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    subprojects.each {
-        include project(path: ":${it.name}", configuration: 'namedElements')
-        modImplementation project(path: ":${it.name}", configuration: 'namedElements')
-    }
+    include project(path: ':diversity-core', configuration: 'namedElements')
+    include project(path: ':diversity-item', configuration: 'namedElements')
+    include project(path: ':diversity-data', configuration: 'namedElements')
+    include project(path: ':diversity-screen', configuration: 'namedElements')
+    include project(path: ':diversity-rendering', configuration: 'namedElements')
 }
 
 java {
