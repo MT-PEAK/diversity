@@ -7,3 +7,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+include 'diversity-rendering'
+include 'diversity-item'
+include 'diversity-data'
+include 'diversity-screen'
