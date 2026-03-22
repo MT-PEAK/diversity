@@ -15,10 +15,21 @@ allprojects {
     group   = project.rootProject.maven_group
 }
 
+repositories {
+
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings  "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modImplementation project(path: ':diversity-core', configuration: 'namedElements')
+    modImplementation project(path: ':diversity-item', configuration: 'namedElements')
+    modImplementation project(path: ':diversity-data', configuration: 'namedElements')
+    modImplementation project(path: ':diversity-screen', configuration: 'namedElements')
+    modImplementation project(path: ':diversity-rendering', configuration: 'namedElements')
 
     include project(path: ':diversity-core', configuration: 'namedElements')
     include project(path: ':diversity-item', configuration: 'namedElements')
@@ -56,6 +67,10 @@ subprojects {
         mappings  "net.fabricmc:yarn:${project.yarn_mappings}:v2"
         modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
         modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+        if (project.name != "diversity-core") {
+            implementation project(path: ':diversity-core', configuration: 'namedElements')
+        }
     }
 
     tasks.withType(JavaCompile).configureEach {

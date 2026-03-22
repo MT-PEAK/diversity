@@ -19,7 +19,6 @@
             "com.peak.diversityScreen.impl.DiversityScreenClient"
         ],
         "fabric-datagen": [
-            "com.peak.diversityScreen.data.DiversityScreenDataGenerator"
         ]
     },
     "custom": {

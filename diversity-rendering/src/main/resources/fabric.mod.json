@@ -16,10 +16,8 @@
             "com.peak.diversityRendering.impl.DiversityRendering"
         ],
         "client": [
-            "com.peak.diversityRendering.client.DiversityRenderingClient"
         ],
         "fabric-datagen": [
-            "com.peak.diversityRendering.client.DiversityRenderingDataGenerator"
         ]
     },
     "custom": {

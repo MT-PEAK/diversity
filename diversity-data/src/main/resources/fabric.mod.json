@@ -19,7 +19,6 @@
             "com.peak.diversityData.impl.DiversityDataClient"
         ],
         "fabric-datagen": [
-            "com.peak.diversityData.data.DiversityDataDataGenerator"
         ]
     },
     "custom": {
