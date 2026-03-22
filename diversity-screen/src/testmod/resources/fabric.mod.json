@@ -1,0 +1,22 @@
+{
+    "schemaVersion": 1,
+    "id": "diversity-screen-test",
+    "version": "${version}",
+    "name": "Diversity Test",
+    "description": "Test mod for the Diversity project",
+    "license": "Unlicense",
+    "entrypoints": {
+        "main": [
+            "com.peak.diversityScreenTest.impl.TestMod"
+        ],
+        "client": [
+            "com.peak.diversityScreenTest.impl.TestModClient"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=21",
+        "diversity-core": "${version}"
+    }
+}

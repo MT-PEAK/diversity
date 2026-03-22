@@ -20,11 +20,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
         super(ctx, model, shadowRadius);
     }
 
-    @Inject(
-            method = "getArmPose",
-            at = @At("HEAD"),
-            cancellable = true
-    )
+    @Inject(method = "getArmPose", at = @At("HEAD"), cancellable = true)
     private static void diversity$customArmPoseItem(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
         ItemStack stack = player.getStackInHand(hand);
 

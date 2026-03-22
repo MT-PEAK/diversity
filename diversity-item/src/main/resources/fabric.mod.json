@@ -13,12 +13,13 @@
     },
     "entrypoints": {
         "main": [
-            "com.peak.diversityItem.impl.DiversityItem",
-            "com.peak.testmod.impl.TestMod"
+            "com.peak.diversityItem.impl.DiversityItem"
         ],
         "client": [
-            "com.peak.diversityItem.impl.client.DiversityItemClient",
-            "com.peak.testmod.impl.TestModClient"
+            "com.peak.diversityItem.impl.DiversityItemClient"
+        ],
+        "fabric-datagen": [
+            "com.peak.diversityItem.data.DiversityItemDataGenerator"
         ]
     },
     "custom": {

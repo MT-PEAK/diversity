@@ -3,8 +3,13 @@
     "minVersion": "0.8",
     "package": "com.peak.diversityItem.mixin",
     "compatibilityLevel": "JAVA_21",
-    "mixins": [],
-    "client": [],
+    "mixins": [
+        "LivingEntityMixin",
+        "PlayerEntityMixin"
+    ],
+    "client": [
+        "client.PlayerEntityRendererMixin"
+    ],
     "injectors": {
         "defaultRequire": 1
     },

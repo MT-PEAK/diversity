@@ -2,7 +2,7 @@ package com.peak.diversityItem.mixin;
 
 import com.peak.diversityItem.features.ItemWithEffects;
 import com.peak.diversityItem.features.WeaponItem;
-import com.peak.diversityItem.impl.util.ModuleUtils;
+import com.peak.diversityItem.impl.util.ItemUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.EntityType;
@@ -35,39 +35,31 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             )
     )
     private void diversity$customCritEffectItem(Entity target, CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
-        ItemStack mainStack = player.getMainHandStack();
+        PlayerEntity player = (PlayerEntity)(Object)this;
+        ItemStack stack = player.getMainHandStack();
 
         if (target instanceof LivingEntity living) {
-            if (mainStack.getItem() instanceof ItemWithEffects effects) {
-                effects.getCritEffect(player, living, player.getWorld(), mainStack);
+            if (stack.getItem() instanceof ItemWithEffects effects) {
+                effects.getCritEffect(player, living, player.getWorld(), stack);
             }
         }
     }
 
-    @Inject(
-            method = "takeShieldHit",
-            at = @At("HEAD")
-    )
+    @Inject(method = "takeShieldHit", at = @At("HEAD"))
     private void diversity$shieldBreaker(LivingEntity attacker, CallbackInfo ci) {
+        PlayerEntity player = (PlayerEntity)(Object)this;
         ItemStack stack = attacker.getMainHandStack();
-        PlayerEntity player = (PlayerEntity) (Object) this;
 
         if (stack.getItem() instanceof ItemWithEffects effects) {
-            this.getItemCooldownManager().set(Items.SHIELD, ModuleUtils.secondsToTicks(effects.getShieldBrokenSeconds(stack, player, attacker)));
+            this.getItemCooldownManager().set(Items.SHIELD, ItemUtil.secondsToTicks(effects.getShieldBrokenSeconds(stack, player, attacker)));
             this.clearActiveItem();
             this.getWorld().sendEntityStatus(this, EntityStatuses.BREAK_SHIELD);
         }
     }
 
-    @Inject(
-            method = "attack",
-            at = @At(
-                    value = "TAIL"
-            )
-    )
+    @Inject(method = "attack", at = @At(value = "TAIL"))
     private void diversity$weaponItemSpawnSweepParticles(Entity target, CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity) (Object) this;
+        PlayerEntity player = (PlayerEntity)(Object)this;
 
         if (player.getMainHandStack().getItem() instanceof WeaponItem item) {
             if (item.isSword) {

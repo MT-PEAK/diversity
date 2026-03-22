@@ -13,7 +13,7 @@
     },
     "entrypoints": {
         "main": [
-            "com.peak.diversityRendering.DiversityRendering"
+            "com.peak.diversityRendering.impl.DiversityRendering"
         ],
         "client": [
             "com.peak.diversityRendering.client.DiversityRenderingClient"

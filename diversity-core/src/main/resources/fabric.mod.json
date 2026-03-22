@@ -15,10 +15,10 @@
             "com.peak.diversityCore.impl.DiversityCore"
         ],
         "client": [
-          "com.peak.diversityCore.impl.client.DiversityCoreClient"
+            "com.peak.diversityCore.impl.DiversityCoreClient"
         ],
         "fabric-datagen": [
-          "com.peak.diversityCore.impl.client.DiversityCoreDataGenerator"
+            "com.peak.diversityCore.data.DiversityCoreDataGenerator"
         ]
     },
     "custom": {

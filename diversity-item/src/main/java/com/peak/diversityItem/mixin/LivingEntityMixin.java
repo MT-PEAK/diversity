@@ -29,42 +29,25 @@ public abstract class LivingEntityMixin extends Entity {
             )
     )
     private void diversity$customKillSourceItem(LivingEntity instance, DamageSource source, float amount, Operation<Void> original) {
-        Entity goober = source.getAttacker();
-
-        if (goober instanceof PlayerEntity player) {
-            if (player.getMainHandStack().getItem() instanceof ItemWithEffects effects) {
-                original.call(instance, effects.getKillDamageSource(instance, player), amount);
-            } else {
-                original.call(instance, source, amount);
-            }
+        if (source.getAttacker() instanceof PlayerEntity player && player.getMainHandStack().getItem() instanceof ItemWithEffects effects) {
+            original.call(instance, effects.getKillDamageSource(instance, player), amount);
+            return;
         }
+
+        original.call(instance, source, amount);
     }
 
-    @Inject(
-            method = "tryUseTotem",
-            at = @At("HEAD")
-    )
-    private void diversity$customKillEffectItem(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
-        LivingEntity living = (LivingEntity) (Object) this;
-        Entity goober = source.getAttacker();
+    @Inject(method = "tryUseTotem", at = @At("HEAD"), cancellable = true)
+    private void diversity$totemItem(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+        LivingEntity living = (LivingEntity)(Object)this;
 
-        if (goober instanceof PlayerEntity player) {
+        if (source.getAttacker() instanceof PlayerEntity player) {
             if (player.getMainHandStack().getItem() instanceof ItemWithEffects effects) {
                 effects.getKillEffect(player, living, player.getMainHandStack(), player.getWorld());
             }
         }
-    }
 
-    @Inject(
-            method = "tryUseTotem",
-            at = @At("HEAD"),
-            cancellable = true
-    )
-    private void diversity$totemItem(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
-        LivingEntity living = (LivingEntity) (Object) this;
-        Entity goober = source.getAttacker();
-
-        if (goober instanceof LivingEntity attacker) {
+        if (source.getAttacker() instanceof LivingEntity attacker) {
             if (living.getOffHandStack().getItem() instanceof TotemItem totemItem) { // yes there is probably a much better way of doing this BUT i don't know how to do this rn
                 totemItem.onDeathEffects(living, attacker, living.getOffHandStack(), living.getWorld());
                 cir.setReturnValue(true);

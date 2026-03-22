@@ -16,10 +16,10 @@
             "com.peak.diversityScreen.impl.DiversityScreen"
         ],
         "client": [
-            "com.peak.diversityScreen.impl.client.DiversityScreenClient"
+            "com.peak.diversityScreen.impl.DiversityScreenClient"
         ],
         "fabric-datagen": [
-            "com.peak.diversityScreen.impl.client.DiversityScreenDataGenerator"
+            "com.peak.diversityScreen.data.DiversityScreenDataGenerator"
         ]
     },
     "custom": {
