@@ -14,13 +14,13 @@ public class ScreenParticleTexture {
     public final int sheetHeight;
 
     private ScreenParticleTexture(Builder builder) {
-        this.texture     = builder.texture;
-        this.frameCount  = builder.frameCount;
-        this.frameRate   = builder.frameRate;
-        this.loop        = builder.loop;
-        this.frameWidth  = builder.frameWidth;
+        this.texture = builder.texture;
+        this.frameCount = builder.frameCount;
+        this.frameRate = builder.frameRate;
+        this.loop = builder.loop;
+        this.frameWidth = builder.frameWidth;
         this.frameHeight = builder.frameHeight;
-        this.sheetWidth  = builder.sheetWidth;
+        this.sheetWidth = builder.sheetWidth;
         this.sheetHeight = builder.sheetHeight;
     }
 
