@@ -1,4 +1,4 @@
-package com.peak.diversityCore.client;
+package com.peak.diversityCore.impl.client;
 
 import net.fabricmc.api.ClientModInitializer;
 

@@ -12,13 +12,13 @@
     },
     "entrypoints": {
         "main": [
-            "com.peak.diversityCore.DiversityCore"
+            "com.peak.diversityCore.impl.DiversityCore"
         ],
         "client": [
-            "com.peak.diversityCore.client.DiversityCoreClient"
+          "com.peak.diversityCore.impl.client.DiversityCoreClient"
         ],
         "fabric-datagen": [
-            "com.peak.diversityCore.client.DiversityCoreDataGenerator"
+          "com.peak.diversityCore.impl.client.DiversityCoreDataGenerator"
         ]
     },
     "custom": {

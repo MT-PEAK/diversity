@@ -1,8 +1,8 @@
-package com.peak.diversityItem;
+package com.peak.diversityCore.impl;
 
 import net.fabricmc.api.ModInitializer;
 
-public class DiversityItem implements ModInitializer {
+public class DiversityCore implements ModInitializer {
     public void onInitialize() {
         //
     }
