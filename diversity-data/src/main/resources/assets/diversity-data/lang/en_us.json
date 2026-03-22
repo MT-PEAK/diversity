@@ -1,0 +1,4 @@
+{
+    "commands.attachments.get": "Attachments for %s are %s",
+    "commands.attachments.get.failed": "Failed to get attachments for %s"
+}

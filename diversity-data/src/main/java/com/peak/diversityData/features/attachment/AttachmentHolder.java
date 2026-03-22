@@ -29,4 +29,13 @@ public class AttachmentHolder {
 
         return attachments;
     }
+
+    public List<Identifier> getAttachmentIds() {
+        List<Identifier> identifiers = new ArrayList<>();
+        this.attachments.forEach((id, attachment) -> {
+            identifiers.add(id);
+        });
+
+        return identifiers;
+    }
 }
