@@ -19,6 +19,7 @@
             "com.peak.diversityData.impl.DiversityDataClient"
         ],
         "fabric-datagen": [
+            "com.peak.diversityData.datagen.DiversityDataDataGenerator"
         ]
     },
     "custom": {
@@ -30,6 +31,10 @@
                 "description": "A multi-module Fabric API.",
                 "badges": [ "library" ]
             }
+        },
+        "loom:injected_interfaces": {
+            "net/minecraft/class_1297": ["com/peak/diversityData/features/attachment/Attachable"],
+            "net/minecraft/class_1937": ["com/peak/diversityData/features/attachment/Attachable"]
         }
     }
 }

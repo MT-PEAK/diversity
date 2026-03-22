@@ -18,8 +18,7 @@
         "client": [
             "com.peak.diversityItem.impl.DiversityItemClient"
         ],
-        "fabric-datagen": [
-        ]
+        "fabric-datagen": []
     },
     "custom": {
         "modmenu": {
