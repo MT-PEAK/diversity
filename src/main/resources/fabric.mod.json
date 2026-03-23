@@ -4,6 +4,11 @@
     "version": "${version}",
     "name": "Diversity",
     "description": "A multi-module Fabric API.",
+    "authors": [
+        "eeverest",
+        "AcoYT",
+        "chemThunder"
+    ],
     "license": "Unlicense",
     "environment": "*",
     "depends": {
