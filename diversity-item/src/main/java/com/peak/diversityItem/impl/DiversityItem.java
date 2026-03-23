@@ -1,20 +1,20 @@
 package com.peak.diversityItem.impl;
 
-import com.peak.diversityItem.test.index.TestModItems;
+import com.mojang.logging.LogUtils;
+import com.peak.diversityCore.impl.DiversityCore;
+import com.peak.diversityItem.test.item.TestItem;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.util.Identifier;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class DiversityItem implements ModInitializer {
-    public static final String MOD_ID = "diversity-item-test";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final Logger LOGGER = LogUtils.getLogger();
+
+    public static final Item TEST_ITEM = new TestItem(new Item.Settings());
 
     public void onInitialize() {
-        TestModItems.init();
-    }
-
-    public static Identifier id(String path) {
-        return Identifier.of(MOD_ID, path);
+        Registry.register(Registries.ITEM, DiversityCore.id("test_item"), TEST_ITEM);
     }
 }

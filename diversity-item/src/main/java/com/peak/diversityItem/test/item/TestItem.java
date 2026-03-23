@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+/// TODO: remove when mod is released
 public class TestItem extends WeaponItem implements ItemWithEffects {
     public TestItem(Settings settings) {
         super(settings, 70.0f, -2.1f, 10.0f, true);

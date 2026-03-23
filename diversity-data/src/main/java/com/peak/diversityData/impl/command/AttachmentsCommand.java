@@ -27,14 +27,18 @@ public class AttachmentsCommand {
                                     AttachmentHolder holder = entity.diversity$getAttachmentHolder();
                                     if (holder != null) {
                                         List<Identifier> identifiers = holder.getAttachmentIds();
-                                        StringBuilder builder = new StringBuilder();
+                                        if (!identifiers.isEmpty()) {
+                                            StringBuilder builder = new StringBuilder();
 
-                                        identifiers.forEach(id -> {
-                                            builder.append(id);
-                                            if (id != identifiers.getLast()) builder.append(", ");
-                                        });
+                                            identifiers.forEach(id -> {
+                                                builder.append(id);
+                                                if (id != identifiers.getLast()) builder.append(", ");
+                                            });
 
-                                        context.getSource().sendFeedback(() -> Text.translatable("commands.attachments.get", entity.getNameForScoreboard(), builder), false);
+                                            context.getSource().sendFeedback(() -> Text.translatable("commands.attachments.get", entity.getNameForScoreboard(), builder), false);
+                                        } else {
+                                            context.getSource().sendFeedback(() -> Text.translatable("commands.attachments.get.none", entity.getNameForScoreboard()), false);
+                                        }
                                     } else {
                                         context.getSource().sendError(Text.translatable("commands.attachments.get.failed", entity.getNameForScoreboard()));
                                     }

@@ -1,7 +1,7 @@
 package com.peak.diversityData.mixin;
 
-import com.peak.diversityData.features.attachment.TickingAttachment;
 import com.peak.diversityData.features.Fetcher;
+import com.peak.diversityData.features.attachment.TickingAttachment;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerWorld;
 import org.spongepowered.asm.mixin.Mixin;
