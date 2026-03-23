@@ -37,7 +37,13 @@ public abstract class LivingEntityMixin extends Entity {
         original.call(instance, source, amount);
     }
 
-    @Inject(method = "tryUseTotem", at = @At("HEAD"), cancellable = true)
+    @Inject(
+            method = "tryUseTotem",
+            at = @At(value =
+                    "HEAD"
+            ),
+            cancellable = true
+    )
     private void diversity$totemItem(DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity living = (LivingEntity)(Object)this;
 

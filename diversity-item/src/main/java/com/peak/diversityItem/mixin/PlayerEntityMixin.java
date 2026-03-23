@@ -45,7 +45,12 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         }
     }
 
-    @Inject(method = "takeShieldHit", at = @At("HEAD"))
+    @Inject(
+            method = "takeShieldHit",
+            at = @At(
+                    value = "HEAD"
+            )
+    )
     private void diversity$shieldBreaker(LivingEntity attacker, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity)(Object)this;
         ItemStack stack = attacker.getMainHandStack();
@@ -57,7 +62,12 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         }
     }
 
-    @Inject(method = "attack", at = @At(value = "TAIL"))
+    @Inject(
+            method = "attack",
+            at = @At(
+                    value = "TAIL"
+            )
+    )
     private void diversity$weaponItemSpawnSweepParticles(Entity target, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity)(Object)this;
 

@@ -2,9 +2,17 @@ package com.peak.diversityItem.impl.util;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import org.joml.Vector3f;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 import static net.minecraft.util.dynamic.Codecs.VECTOR_3F;
@@ -44,5 +52,31 @@ public class ItemUtil {
         }
 
         return i;
+    }
+
+    public static List<LivingEntity> getEntitiesInArea(BlockPos pos, World world, int expansion) {
+        Box area = new Box(pos).expand(expansion);
+
+        return world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
+    }
+
+    public static void applyRiptide(PlayerEntity player, float strength, int riptideTicks, float riptideDamage) {
+        // ew vanilla code
+
+        float f = player.getYaw();
+        float g = player.getPitch();
+        float h = -MathHelper.sin(f * ((float)Math.PI / 180F)) * MathHelper.cos(g * ((float)Math.PI / 180F));
+        float k = -MathHelper.sin(g * ((float)Math.PI / 180F));
+        float l = MathHelper.cos(f * ((float)Math.PI / 180F)) * MathHelper.cos(g * ((float)Math.PI / 180F));
+        float m = MathHelper.sqrt(h * h + k * k + l * l);
+        float n = 3.0F * ((1.0F + strength) / 4.0F);
+        h *= n / m;
+        k *= n / m;
+        l *= n / m;
+        player.addVelocity(h, k, l);
+        player.useRiptide(riptideTicks, riptideDamage, player.getMainHandStack());
+        if (player.isOnGround()) {
+            player.move(MovementType.SELF, new Vec3d(0.0F, 1.1999999F, 0.0F));
+        }
     }
 }
