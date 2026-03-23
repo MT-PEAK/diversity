@@ -1,6 +1,6 @@
 package com.peak.diversityItem.mixin.client;
 
-import com.peak.diversityItem.features.ItemWithEffects;
+import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;

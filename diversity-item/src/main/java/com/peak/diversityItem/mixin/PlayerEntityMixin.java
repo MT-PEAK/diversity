@@ -1,7 +1,6 @@
 package com.peak.diversityItem.mixin;
 
-import com.peak.diversityItem.features.ItemWithEffects;
-import com.peak.diversityItem.features.WeaponItem;
+import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import com.peak.diversityItem.impl.util.ItemUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityStatuses;
@@ -21,8 +20,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
     @Shadow public abstract ItemCooldownManager getItemCooldownManager();
-    @Shadow public abstract void spawnSweepAttackParticles();
-    @Shadow public abstract float getAttackCooldownProgress(float baseTime);
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -30,7 +27,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Inject(
             method = "attack",
-            at = @At(value = "INVOKE",
+            at = @At(
+                    value = "INVOKE",
                     target = "Lnet/minecraft/entity/player/PlayerEntity;addCritParticles(Lnet/minecraft/entity/Entity;)V"
             )
     )
@@ -59,24 +57,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             this.getItemCooldownManager().set(Items.SHIELD, ItemUtil.secondsToTicks(effects.getShieldBrokenSeconds(stack, player, attacker)));
             this.clearActiveItem();
             this.getWorld().sendEntityStatus(this, EntityStatuses.BREAK_SHIELD);
-        }
-    }
-
-    @Inject(
-            method = "attack",
-            at = @At(
-                    value = "TAIL"
-            )
-    )
-    private void diversity$weaponItemSpawnSweepParticles(Entity target, CallbackInfo ci) {
-        PlayerEntity player = (PlayerEntity)(Object)this;
-
-        if (player.getMainHandStack().getItem() instanceof WeaponItem item) {
-            if (item.isSword) {
-                if (this.getAttackCooldownProgress(0.5f) > 0.9f) {
-                    this.spawnSweepAttackParticles();
-                }
-            }
         }
     }
 }

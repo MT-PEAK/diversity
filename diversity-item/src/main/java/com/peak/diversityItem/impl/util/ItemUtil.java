@@ -56,7 +56,6 @@ public class ItemUtil {
 
     public static List<LivingEntity> getEntitiesInArea(BlockPos pos, World world, int expansion) {
         Box area = new Box(pos).expand(expansion);
-
         return world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
     }
 

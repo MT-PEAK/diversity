@@ -1,6 +1,6 @@
 package com.peak.diversityItemTest.impl.item;
 
-import com.peak.diversityItem.features.ItemWithEffects;
+import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import com.peak.diversityItem.features.WeaponItem;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
@@ -25,5 +25,9 @@ public class TestItem extends WeaponItem implements ItemWithEffects {
     public void getCritEffect(PlayerEntity player, LivingEntity target, World world, ItemStack stack) {
         player.setVelocity(0, 0.5f, 0);
         player.velocityModified = true;
+    }
+
+    public boolean isIndestructible(ItemStack stack) {
+        return true;
     }
 }

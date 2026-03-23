@@ -1,4 +1,4 @@
-package com.peak.diversityItem.features;
+package com.peak.diversityItem.features.interfaces;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;

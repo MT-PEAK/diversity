@@ -2,8 +2,8 @@ package com.peak.diversityItem.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import com.peak.diversityItem.features.ItemWithEffects;
-import com.peak.diversityItem.features.TotemItem;
+import com.peak.diversityItem.features.interfaces.ItemWithEffects;
+import com.peak.diversityItem.features.interfaces.TotemItem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -39,8 +39,8 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(
             method = "tryUseTotem",
-            at = @At(value =
-                    "HEAD"
+            at = @At(
+                    value = "HEAD"
             ),
             cancellable = true
     )
