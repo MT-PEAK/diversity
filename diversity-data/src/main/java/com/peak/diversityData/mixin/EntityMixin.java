@@ -1,8 +1,8 @@
 package com.peak.diversityData.mixin;
 
-import com.peak.diversityData.features.Fetcher;
 import com.peak.diversityData.features.attachment.Attachable;
 import com.peak.diversityData.features.attachment.AttachmentHolder;
+import com.peak.diversityData.impl.DiversityData;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.NbtCompound;
@@ -18,12 +18,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Attachable {
-    @Unique private final AttachmentHolder holder = new AttachmentHolder();
+    @Unique private AttachmentHolder holder;
     @Shadow public abstract DynamicRegistryManager getRegistryManager();
 
-    @Inject(method = "<init>", at = @At("TAIL"))
+    @Inject(method = "<init>*", at = @At("TAIL"))
     private void buildAttachments(EntityType<?> type, World world, CallbackInfo ci) {
-        this.holder.attachments.putAll(Fetcher.getAttachmentMapFor(this));
+        this.holder = DiversityData.createHolder((Entity)(Object)this);
     }
 
     @Inject(method = "writeNbt", at = @At("RETURN"))

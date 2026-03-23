@@ -2,12 +2,16 @@ package com.peak.diversityData.impl.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.peak.diversityCore.impl.DiversityCore;
 import com.peak.diversityData.features.attachment.AttachmentHolder;
+import com.peak.diversityData.impl.TestAttachment;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -35,13 +39,27 @@ public class AttachmentsCommand {
                                                 if (id != identifiers.getLast()) builder.append(", ");
                                             });
 
-                                            context.getSource().sendFeedback(() -> Text.translatable("commands.attachments.get", entity.getNameForScoreboard(), builder), false);
+                                            context.getSource().sendFeedback(() -> Text.translatable("commands.attachments.get", entity.getNameForScoreboard(), builder.toString()), false);
                                         } else {
                                             context.getSource().sendFeedback(() -> Text.translatable("commands.attachments.get.none", entity.getNameForScoreboard()), false);
                                         }
                                     } else {
                                         context.getSource().sendError(Text.translatable("commands.attachments.get.failed", entity.getNameForScoreboard()));
                                     }
+
+                                    return Command.SINGLE_SUCCESS;
+                                })
+                        )
+                ).then(literal("test")
+                        .then(argument("amount", IntegerArgumentType.integer(0))
+                                .executes(context -> {
+                                    ServerPlayerEntity player = context.getSource().getPlayerOrThrow();
+
+                                    AttachmentHolder holder = player.diversity$getAttachmentHolder();
+
+                                    holder.getAttachment(DiversityCore.id("test"), TestAttachment.class).ifPresent(test -> {
+                                        test.setTestInt(IntegerArgumentType.getInteger(context, "amount"));
+                                    });
 
                                     return Command.SINGLE_SUCCESS;
                                 })

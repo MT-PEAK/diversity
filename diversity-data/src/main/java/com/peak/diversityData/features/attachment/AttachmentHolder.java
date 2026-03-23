@@ -10,15 +10,29 @@ public class AttachmentHolder {
     public final Map<Identifier, Attachment> attachments = new HashMap<>();
 
     public void writeToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        this.getAttachments().forEach(attachment -> attachment.writeNbt(nbt, registries));
+        this.attachments.forEach((id, attachment) -> {
+            NbtCompound compound = new NbtCompound();
+            attachment.writeNbt(compound, registries);
+            nbt.put(id.toString(), compound);
+        });
     }
 
     public void readFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        this.getAttachments().forEach(attachment -> attachment.readNbt(nbt, registries));
+        this.attachments.forEach((id, attachment) -> {
+            NbtCompound compound = nbt.getCompound(id.toString());
+            attachment.readNbt(compound, registries);
+        });
     }
 
     public Optional<Attachment> getAttachment(Identifier identifier) {
-        return this.attachments.containsKey(identifier) ? Optional.of(this.attachments.get(identifier)) : Optional.empty();
+        return getAttachment(identifier, Attachment.class);
+    }
+
+    public <T extends Attachment> Optional<T> getAttachment(Identifier identifier, Class<T> clazz) {
+        return this.attachments.containsKey(identifier)
+                && this.attachments.get(identifier).getClass().isInstance(clazz)
+                ? Optional.of((T)this.attachments.get(identifier))
+                : Optional.empty();
     }
 
     public List<Attachment> getAttachments() {

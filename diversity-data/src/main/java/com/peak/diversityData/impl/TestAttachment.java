@@ -20,4 +20,12 @@ public class TestAttachment implements TickingAttachment {
     public void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
         nbt.putInt("TestInt", this.testInt);
     }
+
+    public int getTestInt() {
+        return this.testInt;
+    }
+
+    public void setTestInt(int testInt) {
+        this.testInt = testInt;
+    }
 }
