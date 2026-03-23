@@ -5,12 +5,7 @@
     "name": "Diversity Item",
     "description": "Item module of the Diversity API.",
     "license": "Unlicense",
-    "depends": {
-        "fabricloader": ">=${loader_version}",
-        "minecraft": "~${minecraft_version}",
-        "java": ">=21",
-        "diversity-core": "${version}"
-    },
+    "environment": "*",
     "entrypoints": {
         "main": [
             "com.peak.diversityItem.impl.DiversityItem"
@@ -19,6 +14,15 @@
             "com.peak.diversityItem.impl.DiversityItemClient"
         ],
         "fabric-datagen": []
+    },
+    "mixins": [
+        "diversity-item.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=21",
+        "diversity-core": "${version}"
     },
     "custom": {
         "modmenu": {

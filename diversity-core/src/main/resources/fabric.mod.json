@@ -5,11 +5,7 @@
     "name": "Diversity Core",
     "description": "Core module of the Diversity API.",
     "license": "Unlicense",
-    "depends": {
-        "fabricloader": ">=${loader_version}",
-        "minecraft": "~${minecraft_version}",
-        "java": ">=21"
-    },
+    "environment": "*",
     "entrypoints": {
         "main": [
             "com.peak.diversityCore.impl.DiversityCore"
@@ -19,6 +15,14 @@
         ],
         "fabric-datagen": [
         ]
+    },
+    "mixins": [
+        "diversity-core.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=21"
     },
     "custom": {
         "modmenu": {

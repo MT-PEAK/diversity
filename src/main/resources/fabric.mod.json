@@ -5,6 +5,7 @@
     "name": "Diversity",
     "description": "A multi-module Fabric API.",
     "license": "Unlicense",
+    "environment": "*",
     "depends": {
         "fabricloader": ">=${loader_version}",
         "minecraft": "~${minecraft_version}",

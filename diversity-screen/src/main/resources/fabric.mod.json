@@ -5,12 +5,7 @@
     "name": "Diversity Screen",
     "description": "Screen module of the Diversity API.",
     "license": "Unlicense",
-    "depends": {
-        "fabricloader": ">=${loader_version}",
-        "minecraft": "~${minecraft_version}",
-        "java": ">=21",
-        "diversity-core": "${version}"
-    },
+    "environment": "*",
     "entrypoints": {
         "main": [
             "com.peak.diversityScreen.impl.DiversityScreen"
@@ -20,6 +15,15 @@
         ],
         "fabric-datagen": [
         ]
+    },
+    "mixins": [
+        "diversity-screen.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=21",
+        "diversity-core": "${version}"
     },
     "custom": {
         "modmenu": {
