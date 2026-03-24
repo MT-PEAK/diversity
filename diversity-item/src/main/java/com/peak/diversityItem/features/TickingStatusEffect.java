@@ -12,7 +12,6 @@ public class TickingStatusEffect extends StatusEffect {
     }
 
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        int i = this.interval;
-        return duration % i == 0;
+        return duration % this.interval == 0;
     }
 }
