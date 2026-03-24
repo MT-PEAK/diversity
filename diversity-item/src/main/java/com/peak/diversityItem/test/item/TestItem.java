@@ -1,8 +1,8 @@
 package com.peak.diversityItem.test.item;
 
-import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import com.peak.diversityItem.features.WeaponItem;
 import com.peak.diversityItem.features.interfaces.DescriptionItem;
+import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

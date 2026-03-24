@@ -3,8 +3,8 @@ package com.peak.diversityData.impl.command;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.peak.diversityCore.impl.DiversityCore;
 import com.peak.diversityData.features.attachment.AttachmentHolder;
+import com.peak.diversityData.impl.DiversityData;
 import com.peak.diversityData.impl.TestAttachment;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.EntityArgumentType;
@@ -54,12 +54,15 @@ public class AttachmentsCommand {
                         .then(argument("amount", IntegerArgumentType.integer(0))
                                 .executes(context -> {
                                     ServerPlayerEntity player = context.getSource().getPlayerOrThrow();
+                                    int amount = IntegerArgumentType.getInteger(context, "amount");
 
                                     AttachmentHolder holder = player.diversity$getAttachmentHolder();
 
-                                    holder.getAttachment(DiversityCore.id("test"), TestAttachment.class).ifPresent(test -> {
-                                        test.setTestInt(IntegerArgumentType.getInteger(context, "amount"));
-                                    });
+                                    holder.getAttachment(DiversityData.TEST_ID, TestAttachment.class).ifPresentOrElse(test -> {
+                                        player.sendMessage(Text.translatable("commands.attachments.test.success", player.getNameForScoreboard(), amount));
+                                        test.setTestInt(amount);
+                                        holder.update(DiversityData.TEST_ID, test);
+                                    }, () -> player.sendMessage(Text.translatable("commands.attachments.test.fail", player.getNameForScoreboard())));
 
                                     return Command.SINGLE_SUCCESS;
                                 })

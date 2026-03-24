@@ -14,14 +14,8 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(TridentRiptideFeatureRenderer.class)
 public abstract class TridentRiptideFeatureRendererMixin {
-
-    @ModifyVariable(
-            method = "render*",
-            at = @At(
-                    value = "STORE"
-            )
-    )
-    private VertexConsumer diversity$customRiptideTexture(VertexConsumer orig, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, LivingEntity livingEntity) {
+    @ModifyVariable(method = "render*", at = @At(value = "STORE"))
+    private VertexConsumer diversity$customRiptideTexture(VertexConsumer original, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light, LivingEntity livingEntity) {
         if (livingEntity instanceof PlayerEntity player) {
             if ((player.getMainHandStack().getItem() instanceof ItemWithEffects effects)) {
                 return vertexConsumerProvider.getBuffer(RenderLayer.getEntityTranslucentEmissive(effects.getRiptideTexture(player.getMainHandStack(), player)));
@@ -31,6 +25,7 @@ public abstract class TridentRiptideFeatureRendererMixin {
                 return vertexConsumerProvider.getBuffer(RenderLayer.getEntityTranslucentEmissive(effects.getRiptideTexture(player.getOffHandStack(), player)));
             }
         }
-        return orig;
+
+        return original;
     }
 }

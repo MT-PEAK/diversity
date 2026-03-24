@@ -1,14 +1,11 @@
 package com.peak.diversityItem.mixin;
 
-import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CactusBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,13 +19,7 @@ public abstract class CactusBlockMixin extends Block {
         super(settings);
     }
 
-    @Inject(
-            method = "onEntityCollision",
-            at = @At(
-                    value = "HEAD"
-            ),
-            cancellable = true
-    )
+    @Inject(method = "onEntityCollision", at = @At(value = "HEAD"), cancellable = true)
     private void diversity$indestructibleItem(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
         if (entity instanceof ItemEntity itemEntity) {
             if (itemEntity.getStack().getItem() instanceof ItemWithEffects effects) {

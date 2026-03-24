@@ -10,7 +10,7 @@ import com.peak.diversityData.features.attachment.AttachmentHolder;
 import com.peak.diversityData.impl.command.AttachmentsCommand;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 
@@ -21,11 +21,14 @@ import java.util.Objects;
 public class DiversityData implements ModInitializer {
     public static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final Identifier TEST_ID = DiversityCore.id("test_attachment");
+    public static final AttachmentData TEST_DATA = new AttachmentData(Entity.class, new TestAttachment());
+
     public static final Map<Identifier, AttachmentData> dataMap = new HashMap<>();
     public static final Map<Class<? extends Attachable>, AttachmentHolder> attachableHolders = new HashMap<>();
 
     public void onInitialize() {
-        Dispatcher.getOrRegister(DiversityCore.id("test"), new AttachmentData(PlayerEntity.class, new TestAttachment()));
+        Dispatcher.getOrRegister(TEST_ID, TEST_DATA);
 
         CommandRegistrationCallback.EVENT.register(AttachmentsCommand::register);
     }
@@ -50,3 +53,12 @@ public class DiversityData implements ModInitializer {
         return holder;
     }
 }
+
+/**
+ * Component reads and writes data. Able to be extended and used as a base (Attachment)
+ * ComponentAccess lets you get component keys and lets you sync them. It is also implemented by ComponentProvider (Attachable)
+ * ComponentContainer is unmodifiable. Holds component keys registered by ComponentInitializers like the entity and world ones for the current ComponentAccess (AttachmentHolder)
+ * ComponentContainer.Factory A factory for ComponentContainer supplying an object that implements ComponentAccess
+ * ComponentFactory Instantiates a Component for the given provider
+ * ComponentKey A key for retrieving a Component from component providers
+ */

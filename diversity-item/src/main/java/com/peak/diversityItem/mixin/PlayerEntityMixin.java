@@ -43,12 +43,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         }
     }
 
-    @Inject(
-            method = "takeShieldHit",
-            at = @At(
-                    value = "HEAD"
-            )
-    )
+    @Inject(method = "takeShieldHit", at = @At(value = "HEAD"))
     private void diversity$shieldBreaker(LivingEntity attacker, CallbackInfo ci) {
         PlayerEntity player = (PlayerEntity)(Object)this;
         ItemStack stack = attacker.getMainHandStack();

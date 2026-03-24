@@ -9,5 +9,7 @@ public interface Attachable {
         return this.diversity$getAttachmentHolder().getAttachment(identifier);
     }
 
-    AttachmentHolder diversity$getAttachmentHolder();
+    default AttachmentHolder diversity$getAttachmentHolder() {
+        return null;
+    }
 }

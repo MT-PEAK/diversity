@@ -1,5 +1,6 @@
 package com.peak.diversityData.features;
 
+import com.peak.diversityData.features.attachment.Attachable;
 import com.peak.diversityData.features.attachment.Attachment;
 import com.peak.diversityData.features.attachment.AttachmentData;
 import com.peak.diversityData.impl.DiversityData;
@@ -11,17 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Fetcher {
-    public static List<Attachment> getAttachments(Object object) {
-        return getAttachments(object, Attachment.class);
+    public static <H extends Attachable> List<Attachment> getAttachments(H holder) {
+        return getAttachments(holder, Attachment.class);
     }
 
-    public static <T extends Attachment> List<T> getAttachments(Object object, Class<T> check) {
-        List<T> attachments = new ArrayList<>();
-        getAll().stream()
-                .filter(data -> data.shouldApply(object) && data.clazz().isInstance(check))
-                .forEach(data -> attachments.add((T) data.attachment()));
-
-        return attachments;
+    public static <H extends Attachable, A extends Attachment> List<A> getAttachments(H holder, Class<A> check) {
+        return holder.diversity$getAttachmentHolder().getAttachments(check);
     }
 
     public static AttachmentData get(Identifier attachmentId) {

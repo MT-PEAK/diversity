@@ -1,5 +1,8 @@
 {
     "commands.attachments.get": "Attachments for %s are %s",
     "commands.attachments.get.failed": "Failed to get attachments for %s",
-    "commands.attachments.get.none": "%s has no attachments."
+    "commands.attachments.get.none": "%s has no attachments.",
+
+    "commands.attachments.test.success": "Successfully updates TestInt for %s to %s",
+    "commands.attachments.test.fail": "Failed to update TestInt for %s"
 }
