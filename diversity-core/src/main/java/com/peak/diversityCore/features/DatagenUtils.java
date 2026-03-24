@@ -10,7 +10,7 @@ import net.minecraft.registry.RegistryKey;
 
 public class DatagenUtils {
     public class Lang {
-        public static void registerDamageType(FabricLanguageProvider.TranslationBuilder builder, RegistryKey<DamageType> registryKey, String normal, String item, String player) {
+        public void registerDamageType(FabricLanguageProvider.TranslationBuilder builder, RegistryKey<DamageType> registryKey, String normal, String item, String player) {
             String key = "death.attack." + registryKey.getValue().getPath();
             builder.add(key, normal);
             builder.add(key + ".item", item);
