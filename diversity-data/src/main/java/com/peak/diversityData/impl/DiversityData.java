@@ -53,12 +53,3 @@ public class DiversityData implements ModInitializer {
         return holder;
     }
 }
-
-/**
- * Component reads and writes data. Able to be extended and used as a base (Attachment)
- * ComponentAccess lets you get component keys and lets you sync them. It is also implemented by ComponentProvider (Attachable)
- * ComponentContainer is unmodifiable. Holds component keys registered by ComponentInitializers like the entity and world ones for the current ComponentAccess (AttachmentHolder)
- * ComponentContainer.Factory A factory for ComponentContainer supplying an object that implements ComponentAccess
- * ComponentFactory Instantiates a Component for the given provider
- * ComponentKey A key for retrieving a Component from component providers
- */
