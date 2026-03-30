@@ -16,7 +16,7 @@ allprojects {
 }
 
 repositories {
-    
+
 }
 
 dependencies {
@@ -30,12 +30,14 @@ dependencies {
     modImplementation project(path: ':diversity-data', configuration: 'namedElements')
     modImplementation project(path: ':diversity-screen', configuration: 'namedElements')
     modImplementation project(path: ':diversity-rendering', configuration: 'namedElements')
+    modImplementation project(path: ':diversity-config', configuration: 'namedElements')
 
     include project(path: ':diversity-core', configuration: 'namedElements')
     include project(path: ':diversity-item', configuration: 'namedElements')
     include project(path: ':diversity-data', configuration: 'namedElements')
     include project(path: ':diversity-screen', configuration: 'namedElements')
     include project(path: ':diversity-rendering', configuration: 'namedElements')
+    include project(path: ':diversity-config', configuration: 'namedElements')
 }
 
 java {

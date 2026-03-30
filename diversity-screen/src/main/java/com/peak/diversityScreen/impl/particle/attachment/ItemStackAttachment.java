@@ -10,7 +10,7 @@ public class ItemStackAttachment {
     private final float offsetY;
 
     public ItemStackAttachment(ItemStack stack, float offsetX, float offsetY) {
-        this.stack   = stack;
+        this.stack = stack;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
     }
@@ -45,16 +45,16 @@ public class ItemStackAttachment {
     }
 
     private float[] getHotbarSlotPosition(MinecraftClient client, int slotIndex) {
-        int screenWidth  = client.getWindow().getScaledWidth();
+        int screenWidth = client.getWindow().getScaledWidth();
         int screenHeight = client.getWindow().getScaledHeight();
 
-        float hotbarWidth  = 182f;
-        float hotbarX      = (screenWidth - hotbarWidth) * 0.5f;
-        float hotbarY      = screenHeight - 23f;
-        float slotWidth    = 20f;
+        float hotbarWidth = 182f;
+        float hotbarX = (screenWidth - hotbarWidth) * 0.5f;
+        float hotbarY = screenHeight - 23f;
+        float slotWidth = 20f;
 
-        float slotCenterX  = hotbarX + slotIndex * slotWidth + slotWidth * 0.5f;
-        float slotCenterY  = hotbarY + slotWidth * 0.5f;
+        float slotCenterX = hotbarX + slotIndex * slotWidth + slotWidth * 0.5f;
+        float slotCenterY = hotbarY + slotWidth * 0.5f;
 
         return new float[]{slotCenterX + offsetX, slotCenterY + offsetY};
     }

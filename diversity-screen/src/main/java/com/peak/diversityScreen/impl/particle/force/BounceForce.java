@@ -20,18 +20,18 @@ public class BounceForce implements ScreenParticleForce {
         float halfSize = particle.size * 0.5f;
 
         if (particle.x - halfSize <= 0) {
-            particle.x  = halfSize;
+            particle.x = halfSize;
             particle.vx = Math.abs(particle.vx) * restitution;
         } else if (particle.x + halfSize >= screenWidth) {
-            particle.x  = screenWidth - halfSize;
+            particle.x = screenWidth - halfSize;
             particle.vx = -Math.abs(particle.vx) * restitution;
         }
 
         if (particle.y - halfSize <= 0) {
-            particle.y  = halfSize;
+            particle.y = halfSize;
             particle.vy = Math.abs(particle.vy) * restitution;
         } else if (particle.y + halfSize >= screenHeight) {
-            particle.y  = screenHeight - halfSize;
+            particle.y = screenHeight - halfSize;
             particle.vy = -Math.abs(particle.vy) * restitution;
         }
     }

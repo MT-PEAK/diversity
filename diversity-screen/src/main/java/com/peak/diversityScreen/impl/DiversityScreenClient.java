@@ -12,8 +12,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 
 public class DiversityScreenClient implements ClientModInitializer {
     public void onInitializeClient() {
-        System.out.println("this runs");
-
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             ScreenParticleManager.tick();
         });

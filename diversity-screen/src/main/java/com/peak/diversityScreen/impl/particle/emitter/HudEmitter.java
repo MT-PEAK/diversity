@@ -18,10 +18,10 @@ public class HudEmitter extends ScreenParticleEmitter {
 
     public HudEmitter(HudElementAttachment attachment, int particlesPerTick, int maxParticles, int durationTicks, Consumer<ScreenParticleBuilder> builderConsumer) {
         super(builderConsumer);
-        this.attachment       = attachment;
+        this.attachment = attachment;
         this.particlesPerTick = particlesPerTick;
-        this.maxParticles     = maxParticles;
-        this.durationTicks    = durationTicks;
+        this.maxParticles = maxParticles;
+        this.durationTicks = durationTicks;
     }
 
     public static HudEmitter forever(HudElementAttachment attachment, int particlesPerTick, Consumer<ScreenParticleBuilder> builderConsumer) {

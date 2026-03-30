@@ -15,7 +15,7 @@ public class BurstEmitter extends ScreenParticleEmitter {
     public BurstEmitter(Supplier<float[]> positionSupplier, int count, Consumer<ScreenParticleBuilder> builderConsumer) {
         super(builderConsumer);
         this.positionSupplier = positionSupplier;
-        this.count            = count;
+        this.count = count;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class BurstEmitter extends ScreenParticleEmitter {
             ScreenParticleManager.spawn(builder.build());
         }
 
-        fired   = true;
+        fired = true;
         stopped = true;
     }
 }

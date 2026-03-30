@@ -1,0 +1,40 @@
+base { archivesName = 'diversity-config' }
+
+sourceSets {
+    testMod {
+        compileClasspath += main.compileClasspath
+        runtimeClasspath += main.runtimeClasspath
+    }
+}
+
+loom {
+    createRemapConfigurations(sourceSets.testMod)
+
+    runs {
+        testModClient {
+            client()
+            name = 'Test Mod Client'
+            source sourceSets.testMod
+        }
+
+        testModServer {
+            server()
+            name = 'Test Mod Server'
+            source sourceSets.testMod
+        }
+    }
+}
+
+dependencies {
+    testModImplementation sourceSets.main.output
+    modTestModImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+task createDevLibs(type: Jar) {
+    dependsOn classes
+    archiveFileName = "${base.archivesName.get()}-${version}-dev.jar"
+    destinationDirectory = file("$buildDir/devlibs")
+    from sourceSets.main.output
+}
+
+build.dependsOn createDevLibs

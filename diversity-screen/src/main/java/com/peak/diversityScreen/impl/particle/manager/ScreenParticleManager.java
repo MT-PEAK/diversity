@@ -16,9 +16,9 @@ public class ScreenParticleManager {
 
     private static final int DEFAULT_MAX_PARTICLES = 4096;
 
-    private static final List<ScreenParticle> particles       = new ArrayList<>();
+    private static final List<ScreenParticle> particles = new ArrayList<>();
     private static final List<ScreenParticleEmitter> emitters = new ArrayList<>();
-    private static final Deque<ScreenParticle> spawnQueue     = new ArrayDeque<>();
+    private static final Deque<ScreenParticle> spawnQueue = new ArrayDeque<>();
 
     private static int maxParticles = DEFAULT_MAX_PARTICLES;
 

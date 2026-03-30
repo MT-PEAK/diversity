@@ -14,14 +14,14 @@ public class ItemStackEmitter extends ScreenParticleEmitter {
     private final int durationTicks;
 
     private int totalSpawned = 0;
-    private int ticksAlive   = 0;
+    private int ticksAlive = 0;
 
     public ItemStackEmitter(ItemStackAttachment attachment, int particlesPerTick, int maxParticles, int durationTicks, Consumer<ScreenParticleBuilder> builderConsumer) {
         super(builderConsumer);
-        this.attachment       = attachment;
+        this.attachment = attachment;
         this.particlesPerTick = particlesPerTick;
-        this.maxParticles     = maxParticles;
-        this.durationTicks    = durationTicks;
+        this.maxParticles = maxParticles;
+        this.durationTicks = durationTicks;
     }
 
     public static ItemStackEmitter forever(ItemStackAttachment attachment, int particlesPerTick, Consumer<ScreenParticleBuilder> builderConsumer) {

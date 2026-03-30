@@ -14,14 +14,14 @@ public class ContinuousEmitter extends ScreenParticleEmitter {
     private final int durationTicks;
 
     private int totalSpawned = 0;
-    private int ticksAlive   = 0;
+    private int ticksAlive = 0;
 
     public ContinuousEmitter(Supplier<float[]> positionSupplier, int particlesPerTick, int maxParticles, int durationTicks, Consumer<ScreenParticleBuilder> builderConsumer) {
         super(builderConsumer);
-        this.positionSupplier  = positionSupplier;
-        this.particlesPerTick  = particlesPerTick;
-        this.maxParticles      = maxParticles;
-        this.durationTicks     = durationTicks;
+        this.positionSupplier = positionSupplier;
+        this.particlesPerTick = particlesPerTick;
+        this.maxParticles = maxParticles;
+        this.durationTicks = durationTicks;
     }
 
     public static ContinuousEmitter forever(Supplier<float[]> positionSupplier, int particlesPerTick, Consumer<ScreenParticleBuilder> builderConsumer) {

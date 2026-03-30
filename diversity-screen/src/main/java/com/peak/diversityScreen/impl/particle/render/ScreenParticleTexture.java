@@ -50,9 +50,9 @@ public class ScreenParticleTexture {
 
     public static class Builder {
         private final Identifier texture;
-        private int frameCount  = 1;
+        private int frameCount = 1;
         private float frameRate = 20f;
-        private boolean loop    = true;
+        private boolean loop = true;
         private int frameWidth, frameHeight, sheetWidth, sheetHeight;
 
         public Builder(Identifier texture) {
@@ -60,10 +60,10 @@ public class ScreenParticleTexture {
         }
 
         public Builder frames(int count, int frameW, int frameH, int sheetW, int sheetH) {
-            this.frameCount  = count;
-            this.frameWidth  = frameW;
+            this.frameCount = count;
+            this.frameWidth = frameW;
             this.frameHeight = frameH;
-            this.sheetWidth  = sheetW;
+            this.sheetWidth = sheetW;
             this.sheetHeight = sheetH;
             return this;
         }

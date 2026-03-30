@@ -26,9 +26,9 @@ public class HudElementAttachment {
         int h = client.getWindow().getScaledHeight();
 
         float baseX = switch (anchor) {
-            case TOP_LEFT, CENTER_LEFT, BOTTOM_LEFT     -> 0f;
-            case TOP_CENTER, CENTER, BOTTOM_CENTER      -> w * 0.5f;
-            case TOP_RIGHT, CENTER_RIGHT, BOTTOM_RIGHT  -> w;
+            case TOP_LEFT, CENTER_LEFT, BOTTOM_LEFT -> 0f;
+            case TOP_CENTER, CENTER, BOTTOM_CENTER -> w * 0.5f;
+            case TOP_RIGHT, CENTER_RIGHT, BOTTOM_RIGHT -> w;
         };
 
         return baseX + offsetX;
@@ -39,8 +39,8 @@ public class HudElementAttachment {
         int h = client.getWindow().getScaledHeight();
 
         float baseY = switch (anchor) {
-            case TOP_LEFT, TOP_CENTER, TOP_RIGHT        -> 0f;
-            case CENTER_LEFT, CENTER, CENTER_RIGHT      -> h * 0.5f;
+            case TOP_LEFT, TOP_CENTER, TOP_RIGHT -> 0f;
+            case CENTER_LEFT, CENTER, CENTER_RIGHT -> h * 0.5f;
             case BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT -> h;
         };
 
