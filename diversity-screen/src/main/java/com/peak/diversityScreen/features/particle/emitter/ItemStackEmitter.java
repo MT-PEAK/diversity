@@ -1,6 +1,6 @@
 package com.peak.diversityScreen.features.particle.emitter;
 
-import com.peak.diversityScreen.impl.particle.ScreenParticleBuilder;
+import com.peak.diversityScreen.features.particle.ScreenParticleBuilder;
 import com.peak.diversityScreen.features.particle.attachment.ItemStackAttachment;
 import com.peak.diversityScreen.impl.particle.manager.ScreenParticleManager;
 
