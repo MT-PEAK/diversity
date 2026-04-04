@@ -28,6 +28,9 @@ loom {
 dependencies {
     testModImplementation sourceSets.main.output
     modTestModImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    include implementation("com.electronwill.night-config:toml:3.6.7")
+    include implementation("com.electronwill.night-config:core:3.6.7")
 }
 
 task createDevLibs(type: Jar) {

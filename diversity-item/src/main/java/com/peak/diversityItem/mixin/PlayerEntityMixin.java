@@ -1,5 +1,6 @@
 package com.peak.diversityItem.mixin;
 
+import com.peak.diversityItem.features.interfaces.ChargeTracking;
 import com.peak.diversityItem.features.interfaces.ItemWithEffects;
 import com.peak.diversityItem.impl.util.ItemUtil;
 import net.minecraft.entity.Entity;
@@ -13,17 +14,21 @@ import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity {
+public abstract class PlayerEntityMixin extends LivingEntity implements ChargeTracking {
     @Shadow public abstract ItemCooldownManager getItemCooldownManager();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
+
+    @Unique
+    private boolean diversity$fullyCharged;
 
     @Inject(
             method = "attack",
@@ -53,5 +58,15 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             this.clearActiveItem();
             this.getWorld().sendEntityStatus(this, EntityStatuses.BREAK_SHIELD);
         }
+    }
+
+    @Override
+    public void diversity$setFullyCharged(boolean value) {
+        this.diversity$fullyCharged = value;
+    }
+
+    @Override
+    public boolean diversity$wasFullyCharged() {
+        return diversity$fullyCharged;
     }
 }

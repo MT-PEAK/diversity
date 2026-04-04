@@ -13,9 +13,15 @@
 
   "environment": "*",
   "entrypoints": {
-    "fabric-datagen": ["com.peak.diversityConfig.client.DiversityConfigDataGenerator"],
-    "client": ["com.peak.diversityConfig.client.DiversityConfigClient"],
-    "main": ["com.peak.diversityConfig.DiversityConfig"]
+    "fabric-datagen": [
+      "com.peak.diversityConfig.datagen.DiversityConfigDataGenerator"
+    ],
+    "client": [
+        "com.peak.diversityConfig.impl.DiversityConfigClient"
+    ],
+    "main": [
+        "com.peak.diversityConfig.impl.DiversityConfig"
+    ]
   },
 
   "mixins": [
