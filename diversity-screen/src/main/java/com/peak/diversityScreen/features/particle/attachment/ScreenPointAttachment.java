@@ -1,4 +1,4 @@
-package com.peak.diversityScreen.impl.particle.attachment;
+package com.peak.diversityScreen.features.particle.attachment;
 
 import java.util.function.Supplier;
 

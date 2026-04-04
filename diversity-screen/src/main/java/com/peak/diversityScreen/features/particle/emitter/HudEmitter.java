@@ -1,7 +1,7 @@
-package com.peak.diversityScreen.impl.particle.emitter;
+package com.peak.diversityScreen.features.particle.emitter;
 
 import com.peak.diversityScreen.impl.particle.ScreenParticleBuilder;
-import com.peak.diversityScreen.impl.particle.attachment.HudElementAttachment;
+import com.peak.diversityScreen.features.particle.attachment.HudElementAttachment;
 import com.peak.diversityScreen.impl.particle.manager.ScreenParticleManager;
 
 import java.util.function.Consumer;

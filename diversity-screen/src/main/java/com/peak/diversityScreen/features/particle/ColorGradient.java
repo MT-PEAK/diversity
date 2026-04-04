@@ -1,4 +1,4 @@
-package com.peak.diversityScreen.impl.particle.render;
+package com.peak.diversityScreen.features.particle;
 
 import java.awt.*;
 import java.util.ArrayList;

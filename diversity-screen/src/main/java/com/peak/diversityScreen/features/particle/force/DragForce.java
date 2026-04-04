@@ -1,4 +1,4 @@
-package com.peak.diversityScreen.impl.particle.force;
+package com.peak.diversityScreen.features.particle.force;
 
 import com.peak.diversityScreen.impl.particle.ScreenParticle;
 

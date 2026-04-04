@@ -1,4 +1,4 @@
-package com.peak.diversityScreen.impl.particle.emitter;
+package com.peak.diversityScreen.features.particle.emitter;
 
 import com.peak.diversityScreen.impl.particle.ScreenParticleBuilder;
 
