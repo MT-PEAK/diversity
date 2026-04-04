@@ -1,10 +1,10 @@
 package com.peak.diversityScreen.impl;
 
+import com.peak.diversityScreen.features.particle.ColorGradient;
 import com.peak.diversityScreen.features.particle.emitter.ContinuousEmitter;
 import com.peak.diversityScreen.features.particle.force.BounceForce;
 import com.peak.diversityScreen.features.particle.force.GravityForce;
-import com.peak.diversityScreen.impl.particle.manager.ScreenParticleManager;
-import com.peak.diversityScreen.impl.particle.render.ColorGradient;
+import com.peak.diversityScreen.features.particle.manager.ScreenParticleManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;

@@ -1,4 +1,4 @@
-package com.peak.diversityScreen.impl.particle.manager;
+package com.peak.diversityScreen.features.particle.manager;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.peak.diversityScreen.features.particle.ScreenParticle;

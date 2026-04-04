@@ -1,7 +1,7 @@
 package com.peak.diversityScreen.features.particle.emitter;
 
 import com.peak.diversityScreen.features.particle.ScreenParticleBuilder;
-import com.peak.diversityScreen.impl.particle.manager.ScreenParticleManager;
+import com.peak.diversityScreen.features.particle.manager.ScreenParticleManager;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
