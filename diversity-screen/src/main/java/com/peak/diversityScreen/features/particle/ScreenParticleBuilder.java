@@ -1,7 +1,6 @@
 package com.peak.diversityScreen.features.particle;
 
 import com.peak.diversityScreen.features.particle.force.ScreenParticleForce;
-import com.peak.diversityScreen.impl.particle.ScreenParticle;
 import com.peak.diversityScreen.impl.particle.manager.ScreenParticleManager;
 import com.peak.diversityScreen.impl.particle.render.ScreenParticleTexture;
 

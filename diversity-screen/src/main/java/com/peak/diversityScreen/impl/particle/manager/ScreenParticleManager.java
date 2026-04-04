@@ -1,7 +1,7 @@
 package com.peak.diversityScreen.impl.particle.manager;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.peak.diversityScreen.impl.particle.ScreenParticle;
+import com.peak.diversityScreen.features.particle.ScreenParticle;
 import com.peak.diversityScreen.features.particle.emitter.ScreenParticleEmitter;
 import com.peak.diversityScreen.impl.particle.render.ScreenParticleRenderer;
 import net.minecraft.client.MinecraftClient;

@@ -1,7 +1,5 @@
-package com.peak.diversityScreen.impl.particle;
+package com.peak.diversityScreen.features.particle;
 
-import com.peak.diversityScreen.features.particle.ColorGradient;
-import com.peak.diversityScreen.features.particle.ScreenParticleBuilder;
 import com.peak.diversityScreen.features.particle.force.ScreenParticleForce;
 import com.peak.diversityScreen.impl.particle.render.ScreenParticleTexture;
 

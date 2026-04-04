@@ -1,6 +1,6 @@
 package com.peak.diversityScreen.features.particle.force;
 
-import com.peak.diversityScreen.impl.particle.ScreenParticle;
+import com.peak.diversityScreen.features.particle.ScreenParticle;
 
 @FunctionalInterface
 public interface ScreenParticleForce {
